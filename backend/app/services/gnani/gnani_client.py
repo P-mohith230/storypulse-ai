@@ -13,6 +13,8 @@ class GnaniClient:
         self.mock_fallback = settings.GNANI_MOCK_FALLBACK or (not bool(self.api_key))
 
     def is_live_configured(self) -> bool:
+        if getattr(self, "force_mock", False):
+            return False
         return bool(self.api_key and len(self.api_key.strip()) > 5)
 
     def transcribe_audio_sync(

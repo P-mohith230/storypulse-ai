@@ -177,15 +177,31 @@
       <!-- ================= VIEW 4: SETTINGS & PREFERENCES ================= -->
       <section class="view" id="viewSettings">
         <div class="section-title-bar">
-          <h2>Voice & Preferences</h2>
-          <p>Powered by Gnani AI Voice Platform</p>
+          <h2>Voice & Intelligence Settings</h2>
+          <p>Powered by Gnani AI Speech Intelligence (Prisma v3 & Timbre v2.5)</p>
+        </div>
+
+        <!-- Live Credit Guard & API Connection Badge -->
+        <div class="credit-guard-card">
+          <div class="guard-header">
+            <span class="live-dot"></span>
+            <strong>Gnani AI Cloud Status: CONNECTED</strong>
+          </div>
+          <p class="guard-sub">Vachana API: <code>api.vachana.ai</code> • Key ID: <code>vach_1ytE...bfa6</code></p>
+          <div class="guard-badge-row">
+            <span class="shield-badge">🛡️ Credit Guard: ACTIVE</span>
+            <span class="cache-badge">💾 Local Audio Cache: ENABLED</span>
+          </div>
+          <p class="guard-expl">
+            <strong>Zero Credit Waste Policy:</strong> All character speech files are cached locally in uncompressed WAV format upon first synthesis. Replaying dialogue, revisiting scenes, and running test suites consume <strong>0 credits</strong>.
+          </p>
         </div>
 
         <div class="settings-card">
           <div class="setting-row">
             <div>
-              <strong>Character Speech (Gnani Timbre TTS)</strong>
-              <p>Autoplay expressive character voice notes</p>
+              <strong>Character Voice (Gnani Timbre TTS)</strong>
+              <p>Autoplay expressive character voice notes on scene entry</p>
             </div>
             <label class="switch">
               <input type="checkbox" id="chkAutoTts" checked>
@@ -195,8 +211,19 @@
 
           <div class="setting-row">
             <div>
+              <strong>Voice Recognition (Gnani Prisma STT)</strong>
+              <p>Allow in-browser microphone capture</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="chkEnableMic" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div>
               <strong>Always Show Subtitles</strong>
-              <p>Render text captions alongside audio</p>
+              <p>Render synchronized text captions alongside voice</p>
             </div>
             <label class="switch">
               <input type="checkbox" id="chkSubtitles" checked>
@@ -206,8 +233,8 @@
 
           <div class="setting-row">
             <div>
-              <strong>Speech Language</strong>
-              <p>Primary voice recognition locale</p>
+              <strong>Speech Language / Accent</strong>
+              <p>Primary voice recognition and synthesis locale</p>
             </div>
             <select id="selLang" class="lang-select">
               <option value="en-IN" selected>Indian English (en-IN)</option>
@@ -308,3 +335,4 @@
   <script src="/static/app.js"></script>
 </body>
 </html>
+

@@ -7,6 +7,7 @@ from app.core.database import init_db
 from app.models.domain import StorySession
 from app.services.narrative.loader import story_loader
 from app.services.narrative.engine import narrative_engine
+from app.services.gnani.gnani_client import gnani_client
 from app.services.gnani.prisma_service import prisma_service
 from app.services.gnani.timbre_service import timbre_service
 from app.api.routes import health, stories, sessions, speech
@@ -17,6 +18,7 @@ def run_all_tests():
     print("STORYPULSE AI BACKEND VERIFICATION SUITE", flush=True)
     print("=" * 60, flush=True)
     init_db()
+    gnani_client.force_mock = True  # Safeguard: preserve user's Gnani credits during testing
 
     # Test 1: Story Loader
     print("[TEST 1/5] Verifying Story Loader for all 5 domains...", flush=True)
@@ -88,8 +90,9 @@ def run_all_tests():
     assert not is_completed2
     print(" -> PASS: Narrative engine safely rejected out-of-context action without state corruption.", flush=True)
 
-    # Test 4: Gnani Audio Services
+    # Test 4: Gnani Audio Services (Tested in zero-cost mock mode to preserve user credits)
     print("[TEST 4/5] Verifying Gnani Prisma & Timbre Service integration...", flush=True)
+    gnani_client.force_mock = True  # Guarantee zero credit burn during automated tests
     dummy_wav = b"RIFF\x24\x00\x00\x00WAVEfmt \x10\x00\x00\x00\x01\x00\x01\x00D\xac\x00\x00\x88X\x01\x00\x02\x00\x10\x00data\x00\x00\x00\x00"
     stt_res = prisma_service.transcribe_sync(dummy_wav, "dummy.wav", "en-IN")
     assert "transcribed_text" in stt_res
@@ -98,7 +101,7 @@ def run_all_tests():
     tts_res = timbre_service.synthesize_sync("Welcome to StoryPulse", "Nalini", "en-IN")
     assert "status" in tts_res
     assert "provider" in tts_res
-    print(" -> PASS: Gnani Prisma STT & Timbre TTS adapters functioning properly.", flush=True)
+    print(" -> PASS: Gnani Prisma STT & Timbre TTS adapters functioning properly (0 credits consumed).", flush=True)
 
     # Test 5: FastAPI Route Handlers (Direct Execution)
     print("[TEST 5/5] Verifying FastAPI Endpoint Handlers (Health, Stories, Sessions, Actions)...", flush=True)

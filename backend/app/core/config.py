@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite:///./storypulse.db"
 
     # Gnani AI Audio Platform
-    GNANI_API_KEY: str = os.getenv("GNANI_API_KEY", "")
+    GNANI_API_KEY: str = ""
     GNANI_BASE_URL: str = "https://api.vachana.ai"
     GNANI_PRISMA_ENDPOINT: str = "/stt/v3"
     GNANI_TIMBRE_ENDPOINT: str = "/api/v1/tts/inference"
@@ -23,11 +23,11 @@ class Settings(BaseSettings):
 
     # LLM Settings
     LLM_PROVIDER: str = "mock_fallback"
-    OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
-    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
+    OPENAI_API_KEY: str = ""
+    GEMINI_API_KEY: str = ""
 
     class Config:
-        env_file = ".env"
+        env_file = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), ".env")
         extra = "ignore"
 
 settings = Settings()
