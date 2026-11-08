@@ -38,3 +38,4 @@ class SessionAction:
     input_modality: str = "TEXT"  # 'VOICE', 'TEXT', 'TOUCH_TAP'
     audio_url: Optional[str] = None
     created_at: datetime = field(default_factory=datetime.utcnow)
+

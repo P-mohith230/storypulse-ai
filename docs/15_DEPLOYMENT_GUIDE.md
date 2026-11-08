@@ -80,3 +80,4 @@ Press `a` in the terminal to launch on a running Android emulator or scan the QR
 # Build standalone Android APK with Expo EAS
 npx eas build -p android --profile preview
 ```
+

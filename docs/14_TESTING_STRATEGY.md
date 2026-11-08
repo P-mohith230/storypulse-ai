@@ -59,3 +59,4 @@ To maintain empirical rigor, StoryPulse measures eight primary performance indic
 | **TTS Playback Success Rate** | `> 98%` | Proportion of lines delivered with playable audio | Client Logging |
 | **Story Completion Rate** | `> 75%` | Proportion of started sessions reaching an ending | Real Tester Feedback |
 | **Cold Start to Interactive** | `< 2000 ms` | Mobile startup to Home screen ready | Android Device Profiler |
+

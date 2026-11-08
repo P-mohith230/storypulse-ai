@@ -15,3 +15,4 @@ def health_check():
         gnani_tts_status="ONLINE" if gnani_client.is_live_configured() else "MOCK_MODE",
         active_sessions=session_repo.count_active_sessions()
     )
+

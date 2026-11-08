@@ -19,3 +19,4 @@ def get_story_details(story_id: str):
     if not story:
         raise HTTPException(status_code=404, detail="Story not found")
     return story
+

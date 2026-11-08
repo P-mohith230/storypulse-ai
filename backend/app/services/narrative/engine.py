@@ -112,3 +112,4 @@ class NarrativeEngine:
         return session, scene_payload, newly_unlocked_clue, is_completed
 
 narrative_engine = NarrativeEngine()
+

@@ -97,3 +97,4 @@ Following verification with official documentation (`https://docs.gnani.ai/` and
 If `GNANI_API_KEY` is absent or the cloud API returns an error / timeout (`> 4000ms`), the system operates gracefully:
 1. **STT Fallback:** If audio cannot be processed, the client receives a 200 response with simulated transcription or offers instant tap to type with no crash.
 2. **TTS Fallback:** If speech synthesis is unreachable, the backend flags `audio_url: null` with `audio_status: "FALLBACK_TEXT_ONLY"`. The mobile app renders the text subtitles instantly with full readability.
+

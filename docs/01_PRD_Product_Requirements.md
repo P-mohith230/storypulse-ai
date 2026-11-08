@@ -131,3 +131,4 @@ By unifying:
    - Minimum 48x48 dp touch targets.
    - High-contrast text overlays on visual cards (WCAG AA compliant).
    - Complete closed captions for every synthesized voice line.
+

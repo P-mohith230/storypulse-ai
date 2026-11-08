@@ -87,3 +87,4 @@ StoryPulse bridges the gap between literary adventure, graphic novels, and prest
 2. **Reduced Motion:** If user enables `prefers-reduced-motion` in device settings, disable parallax transforms and continuous pulsing rings, replacing them with simple opacity transitions.
 3. **Color Contrast:** All dialogue text against background surfaces exceeds `7:1` contrast ratio (WCAG AAA).
 4. **Captions & Transcript:** Spoken voice is accompanied by verbatim typed dialogue in real time so users in silent environments can enjoy the complete narrative without turning on audio.
+

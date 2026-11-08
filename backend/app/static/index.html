@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>StoryPulse AI — Your Moments. Your Mood. Your Story.</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- App Container (Mobile-first wrapper that centers on desktop) -->
+  <div class="app-shell" id="appShell">
+    
+    <!-- Top Navigation Bar -->
+    <header class="app-header" id="appHeader">
+      <div class="brand">
+        <div class="brand-sparkle">✨</div>
+        <div>
+          <h1 class="brand-title">StoryPulse AI</h1>
+          <p class="brand-tagline">Your moments. Your mood. Your story.</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="nav-icon-btn" id="settingsToggleBtn" title="Preferences">⚙️</button>
+      </div>
+    </header>
+
+    <!-- Main Dynamic Views -->
+    <main class="app-main" id="mainContent">
+
+      <!-- ================= VIEW 1: DISCOVER / HOME ================= -->
+      <section class="view active-view" id="viewDiscover">
+        
+        <!-- In-Progress Resume Card -->
+        <div class="resume-banner hidden" id="resumeBanner" onclick="window.storyPulse.resumeSession()">
+          <div class="resume-info">
+            <span class="badge-tag">▶ IN PROGRESS</span>
+            <h3 id="resumeTitle">The Salt Cliff Road</h3>
+            <p>Tap to jump back into your story</p>
+          </div>
+          <div class="resume-play-btn">▶</div>
+        </div>
+
+        <!-- Filter: Duration -->
+        <div class="filter-section">
+          <span class="filter-label">⏱ Available Time</span>
+          <div class="chip-scroll">
+            <button class="chip chip-dur" data-duration="2">2 min</button>
+            <button class="chip chip-dur active" data-duration="5">5 min</button>
+            <button class="chip chip-dur" data-duration="10">10 min</button>
+            <button class="chip chip-dur" data-duration="15">15 min</button>
+          </div>
+        </div>
+
+        <!-- Filter: Mood -->
+        <div class="filter-section">
+          <span class="filter-label">🎭 Current Mood</span>
+          <div class="chip-scroll">
+            <button class="chip chip-mood active" data-mood="Curious">🔍 Curious</button>
+            <button class="chip chip-mood" data-mood="Excited">⚡ Excited</button>
+            <button class="chip chip-mood" data-mood="Relaxed">☕ Relaxed</button>
+            <button class="chip chip-mood" data-mood="Bored">🎭 Bored</button>
+            <button class="chip chip-mood" data-mood="Playful">✨ Playful</button>
+          </div>
+        </div>
+
+        <!-- Story Worlds Catalog -->
+        <div class="catalog-heading">
+          <h2>Story Worlds</h2>
+          <span class="catalog-count">(5 Domains)</span>
+        </div>
+
+        <div class="stories-grid" id="storiesGrid">
+          <!-- Dynamically populated story cards with real artwork -->
+        </div>
+      </section>
+
+      <!-- ================= VIEW 2: CINEMATIC GAMEPLAY ================= -->
+      <section class="view" id="viewGameplay">
+        
+        <!-- Gameplay Top Bar -->
+        <div class="gameplay-bar">
+          <button class="gameplay-back-btn" onclick="window.storyPulse.navigateHome()">← Exit</button>
+          <div class="gameplay-location" id="gameplayLocation">
+            <span class="pin-icon">📍</span>
+            <span id="locationText">The Salt Cliff Road</span>
+          </div>
+          <button class="gameplay-clues-btn" onclick="window.storyPulse.openClueDrawer()">
+            🔍 Clues (<span id="clueCountBadge">1</span>)
+          </button>
+        </div>
+
+        <!-- Scene Cinematic Hero Artwork -->
+        <div class="scene-canvas" id="sceneCanvas">
+          <img id="sceneImage" src="/static/images/scenes/scene_cliffside.png" alt="Scene Artwork" class="scene-img">
+          <div class="scene-gradient-overlay">
+            <span class="scene-domain-pill" id="sceneDomainPill">MYSTERY</span>
+            <h2 class="scene-title-overlay" id="sceneTitleOverlay">The Salt Cliff Road</h2>
+          </div>
+        </div>
+
+        <!-- Character Dialogue Section -->
+        <div class="dialogue-block">
+          <div class="character-header">
+            <div class="char-avatar-ring" id="charAvatarRing">
+              <img id="charAvatarImg" src="/static/images/characters/char_dev.png" alt="Character Avatar" class="char-avatar">
+            </div>
+            <div class="char-details">
+              <h4 class="char-name" id="charName">Dev (The Postman)</h4>
+              <span class="char-voice-status" id="charVoiceStatus">Awaiting your response</span>
+            </div>
+            <button class="audio-replay-btn" id="audioReplayBtn" onclick="window.storyPulse.replayDialogueAudio()" title="Replay voice note">
+              🔊
+            </button>
+          </div>
+
+          <!-- Dialogue Subtitle Bubble -->
+          <div class="speech-bubble">
+            <p id="dialogueText">"I swear on my postal badge... I found this envelope in my satchel, but look at the purple postmark. It's dated tomorrow at 6:00 AM."</p>
+          </div>
+        </div>
+
+        <!-- Discovered Clue Alert Box -->
+        <div class="new-clue-alert hidden" id="newClueAlert">
+          <div class="clue-sparkle">✨</div>
+          <div class="clue-alert-text">
+            <span class="clue-alert-sub">NEW EVIDENCE DISCOVERED</span>
+            <strong id="newClueTitle">The Tomorrow Letter</strong>
+          </div>
+        </div>
+
+        <!-- Suggested Narrative Decisions -->
+        <div class="choices-container">
+          <span class="choices-heading">SUGGESTED NARRATIVE ACTIONS</span>
+          <div class="action-chips" id="actionChips">
+            <!-- Dynamically generated action chips -->
+          </div>
+        </div>
+
+        <!-- Voice & Keyboard Input Controller -->
+        <div class="controller-tray" id="controllerTray">
+          <div class="input-mode-toggle">
+            <button class="tray-btn active" id="btnModeVoice" onclick="window.storyPulse.setMode('voice')">🎙️ Voice</button>
+            <button class="tray-btn" id="btnModeText" onclick="window.storyPulse.setMode('text')">⌨️ Type</button>
+          </div>
+
+          <!-- Voice HUD Mode -->
+          <div class="voice-hud" id="voiceHud">
+            <button class="mic-orb" id="micOrb" onmousedown="window.storyPulse.startVoice()" onmouseup="window.storyPulse.stopVoice()" ontouchstart="window.storyPulse.startVoice()" ontouchend="window.storyPulse.stopVoice()">
+              <div class="mic-orb-ring"></div>
+              <span class="mic-icon">🎙️</span>
+            </button>
+            <p class="voice-hint" id="voiceHint">Hold to speak via Gnani Prisma STT</p>
+          </div>
+
+          <!-- Typed Text Mode -->
+          <div class="text-input-row hidden" id="textInputRow">
+            <input type="text" id="actionInput" placeholder="What will you do or say?" autocomplete="off">
+            <button class="send-btn" id="sendActionBtn" onclick="window.storyPulse.sendTypedAction()">➤</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= VIEW 3: CASE CLUE DOSSIER ================= -->
+      <section class="view" id="viewDossier">
+        <div class="section-title-bar">
+          <h2>Case Clue Dossier</h2>
+          <p>Tangible evidence collected throughout your investigation.</p>
+        </div>
+        <div class="clues-dossier-list" id="cluesDossierList">
+          <!-- Dynamically populated clues -->
+        </div>
+      </section>
+
+      <!-- ================= VIEW 4: SETTINGS & PREFERENCES ================= -->
+      <section class="view" id="viewSettings">
+        <div class="section-title-bar">
+          <h2>Voice & Preferences</h2>
+          <p>Powered by Gnani AI Voice Platform</p>
+        </div>
+
+        <div class="settings-card">
+          <div class="setting-row">
+            <div>
+              <strong>Character Speech (Gnani Timbre TTS)</strong>
+              <p>Autoplay expressive character voice notes</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="chkAutoTts" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div>
+              <strong>Always Show Subtitles</strong>
+              <p>Render text captions alongside audio</p>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="chkSubtitles" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div>
+              <strong>Speech Language</strong>
+              <p>Primary voice recognition locale</p>
+            </div>
+            <select id="selLang" class="lang-select">
+              <option value="en-IN" selected>Indian English (en-IN)</option>
+              <option value="te-IN">Telugu (తెలుగు te-IN)</option>
+              <option value="hi-IN">Hindi (हिंदी hi-IN)</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Tab Navigation Bar -->
+    <nav class="bottom-tab-bar" id="bottomTabBar">
+      <button class="tab-btn active" data-target="viewDiscover">
+        <span class="tab-icon">🧭</span>
+        <span class="tab-label">Discover</span>
+      </button>
+      <button class="tab-btn" data-target="viewDossier">
+        <span class="tab-icon">📂</span>
+        <span class="tab-label">Dossier</span>
+      </button>
+      <button class="tab-btn" data-target="viewSettings">
+        <span class="tab-icon">⚙️</span>
+        <span class="tab-label">Settings</span>
+      </button>
+    </nav>
+
+    <!-- Modal: Story Preview -->
+    <div class="modal-overlay hidden" id="previewModal">
+      <div class="modal-card">
+        <button class="modal-close-btn" onclick="window.storyPulse.closePreviewModal()">✕</button>
+        <div class="modal-cover-wrapper">
+          <img id="previewCoverImg" src="" alt="Story Cover" class="modal-cover-img">
+          <div class="modal-cover-gradient">
+            <span class="modal-domain-tag" id="previewDomainTag">MYSTERY</span>
+            <h2 id="previewTitle">The Archive of Unsent Goodbyes</h2>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-meta-row">
+            <span id="previewDuration">⏱ 10 min</span>
+            <span id="previewMoods">🔍 Curious • Reflective</span>
+          </div>
+          <p class="modal-tagline" id="previewTagline">Some memories are sealed for a reason.</p>
+          <div class="modal-stats">
+            <div class="modal-stat-box">
+              <strong id="previewCluesCount">5</strong>
+              <span>Clues</span>
+            </div>
+            <div class="modal-stat-box">
+              <strong id="previewCharCount">3</strong>
+              <span>Characters</span>
+            </div>
+          </div>
+          <button class="modal-enter-btn" id="modalEnterBtn" onclick="window.storyPulse.startSelectedStory()">
+            ▶ Enter Interactive Story
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Clue Detail Drawer -->
+    <div class="modal-overlay hidden" id="clueDrawerModal">
+      <div class="drawer-card">
+        <div class="drawer-header">
+          <h3>Case Clues (<span id="drawerClueCount">0</span>)</h3>
+          <button class="modal-close-btn" onclick="window.storyPulse.closeClueDrawer()">✕</button>
+        </div>
+        <div class="drawer-content" id="drawerCluesList">
+          <!-- Clue items -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Story Ending Resolution -->
+    <div class="modal-overlay hidden" id="endingModal">
+      <div class="modal-card ending-card">
+        <div class="ending-badge">🎉</div>
+        <span class="ending-over-tag">CHAPTER RESOLVED</span>
+        <h2 id="endingTitle">Ending 2: Tomorrow's Truth</h2>
+        <img id="endingImg" src="/static/images/endings/end_final_delivery.png" class="ending-img" alt="Ending Artwork">
+        <p class="ending-epilogue" id="endingEpilogue">
+          You break the wax seal with Dev. The forgotten memory floods your consciousness—restoring every lost letter to its rightful owner as dawn breaks over the harbor.
+        </p>
+        <div class="ending-buttons">
+          <button class="btn-secondary" onclick="window.storyPulse.restartStory()">↺ Play Again</button>
+          <button class="btn-primary" onclick="window.storyPulse.navigateHome()">Return to Catalog</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Audio Player Elements for synthesized voice notes -->
+  <audio id="ttsAudioPlayer" preload="auto"></audio>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -185,3 +185,4 @@ npx expo start                      # Launch Expo developer tools
 - [x] Tests pass (100%).
 - [x] Zero API credentials leaked in Git or frontend code.
 - [x] Comprehensive documentation and README provided.
+

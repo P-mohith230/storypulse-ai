@@ -106,3 +106,4 @@
 - **Endings:**
   - *Ending 1 (Timeline Stabilized):* The future voice note fades into static as disaster is averted.
   - *Ending 2 (The Causal Loop):* The counter-instruction itself triggers the containment experiment.
+

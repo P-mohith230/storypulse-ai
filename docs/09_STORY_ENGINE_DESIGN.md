@@ -80,3 +80,4 @@ class StorySessionState:
 4. **If Invalid or Ambiguous Action:**
    - Keep current scene unchanged.
    - Character responds in-character redirecting the player back to the present mystery without breaking immersion.
+

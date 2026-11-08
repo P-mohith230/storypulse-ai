@@ -112,3 +112,4 @@ def run_cli_session(story_id="mystery"):
 if __name__ == "__main__":
     print_banner()
     run_cli_session("mystery")
+

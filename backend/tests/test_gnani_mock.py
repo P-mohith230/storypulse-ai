@@ -25,3 +25,4 @@ async def test_timbre_synthesis_service():
     )
     assert "status" in result
     assert "provider" in result
+

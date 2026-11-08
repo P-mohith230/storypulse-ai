@@ -89,3 +89,4 @@ graph TD
 - Encapsulates network communication with `https://api.vachana.ai`.
 - Injects required headers (`X-API-Key-ID`).
 - Provides automatic fallback to high-fidelity mock audio / transcript when keys are unset or network fails.
+

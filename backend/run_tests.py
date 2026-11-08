@@ -137,8 +137,43 @@ def run_all_tests():
     assert action_res.newly_unlocked_clue.id == "clue_weather_telegram"
     print(" -> PASS: All API endpoint contracts validated (Health, Catalog, Creation, Action).", flush=True)
 
+    # Test 6: Responsive Web Assets and Image Inventory
+    print("[TEST 6/6] Verifying Responsive Web Assets and Complete Image Inventory...", flush=True)
+    from app.main import STATIC_DIR
+    assert os.path.exists(os.path.join(STATIC_DIR, "index.html")), "index.html missing"
+    assert os.path.exists(os.path.join(STATIC_DIR, "style.css")), "style.css missing"
+    assert os.path.exists(os.path.join(STATIC_DIR, "app.js")), "app.js missing"
+    
+    # Check all 5 story domain assets
+    img_dir = os.path.join(STATIC_DIR, "images")
+    required_assets = [
+        "covers/cover_mystery.png", "covers/cover_thriller.png", "covers/cover_adventure.png",
+        "covers/cover_comedy.png", "covers/cover_scifi.png",
+        "characters/char_mira.png", "characters/char_conductor.png", "characters/char_tara.png",
+        "characters/char_rao.png", "characters/char_orson.png",
+        "scenes/scene_cliffside.png", "scenes/scene_carriage.png", "scenes/scene_sky_ascent.png",
+        "scenes/scene_excuse_office.png", "scenes/scene_lunar_comms.png",
+        "clues/clue_tomorrow_letter.png", "clue_emergency_key.png", "clues/clue_monsoon_compass.png",
+        "clues/clue_rejected_stamp.png", "clues/clue_coolant_schematic.png"
+    ]
+    # Verify each asset path
+    for asset in [
+        "covers/cover_mystery.png", "covers/cover_thriller.png", "covers/cover_adventure.png",
+        "covers/cover_comedy.png", "covers/cover_scifi.png",
+        "characters/char_mira.png", "characters/char_conductor.png", "characters/char_tara.png",
+        "characters/char_rao.png", "characters/char_orson.png",
+        "scenes/scene_cliffside.png", "scenes/scene_carriage.png", "scenes/scene_sky_ascent.png",
+        "scenes/scene_excuse_office.png", "scenes/scene_lunar_comms.png",
+        "clues/clue_tomorrow_letter.png", "clues/clue_emergency_key.png", "clues/clue_monsoon_compass.png",
+        "clues/clue_rejected_stamp.png", "clues/clue_coolant_schematic.png",
+        "endings/end_platform_zero_arrival.png", "endings/end_final_delivery.png", "endings/end_sky_sanctuary.png"
+    ]:
+        p = os.path.join(img_dir, asset)
+        assert os.path.exists(p) and os.path.getsize(p) > 1000, f"Asset missing or invalid: {asset}"
+    print(" -> PASS: Mobile-first Web Assets (HTML/CSS/JS) & 100% of Visual Assets verified.", flush=True)
+
     print("=" * 60, flush=True)
-    print("ALL 5 BACKEND VERIFICATION TEST SUITES PASSED (100% SUCCESS)", flush=True)
+    print("ALL 6 STORYPULSE VERIFICATION SUITES PASSED (100% SUCCESS)", flush=True)
     print("=" * 60, flush=True)
 
 if __name__ == "__main__":

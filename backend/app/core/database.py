@@ -81,3 +81,4 @@ def init_db():
         CREATE INDEX IF NOT EXISTS idx_sessions_story ON story_sessions(story_id);
         CREATE INDEX IF NOT EXISTS idx_actions_session ON session_actions(session_id);
         """)
+

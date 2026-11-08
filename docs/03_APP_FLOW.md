@@ -190,3 +190,4 @@ sequenceDiagram
    - On foreground return, prompts player: "Resume your conversation with Mira?"
 3. **Gnani Service Timeout / Missing Key:**
    - If audio transcription or synthesis times out (`> 4000ms`), system falls back to text subtitles instantly without stalling the story.
+

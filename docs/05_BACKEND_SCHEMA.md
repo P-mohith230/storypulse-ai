@@ -147,3 +147,4 @@ interface SceneDefinition {
 - **Audio Files:** Temporary user voice recordings are retained in `/tmp/` only for the duration of the transcription request (`max 60 seconds`) and deleted.
 - **Synthesized Voice:** Audio cache for character voice lines is cached by content hash (`md5(text + voice_id)`) to minimize latency and redundant Gnani API calls.
 - **Sessions:** Inactive sessions remain in SQLite database indefinitely during MVP testing.
+

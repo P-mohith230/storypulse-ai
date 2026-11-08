@@ -56,3 +56,4 @@ def test_session_lifecycle():
     assert action_data["session_id"] == session_id
     assert action_data["newly_unlocked_clue"] is not None
     assert action_data["newly_unlocked_clue"]["id"] == "clue_weather_telegram"
+

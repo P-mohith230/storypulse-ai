@@ -88,3 +88,4 @@ def test_invalid_action_graceful_handling():
     assert len(session.discovered_clues) == original_clue_count
     assert not is_completed
     assert "doesn't seem to help" in payload["dialogue"]
+

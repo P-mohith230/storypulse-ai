@@ -213,3 +213,4 @@ EXPO_PUBLIC_DEFAULT_LANG=en-IN
 1. **Secrets Isolation:** Under no circumstances are `GNANI_API_KEY` or LLM API keys included in client-side code, git commits, or bundled mobile assets.
 2. **Audio File Hygiene:** User microphone recordings uploaded to the backend are saved to an isolated, ephemeral scratch folder (`/tmp/audio_scratch/`), hashed, and unlinked immediately after STT processing.
 3. **Session Tokens:** Client sessions are authenticated via crypto-random UUIDv4 session tokens stored in client secure storage and verified on each narrative action.
+

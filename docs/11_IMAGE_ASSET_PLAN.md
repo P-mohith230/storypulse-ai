@@ -46,3 +46,4 @@ Every story in StoryPulse is supported by an original suite of visual assets:
    - In environments equipped with the image generator subagent, artwork is generated matching these strict artistic prompts and saved into `mobile/assets/images/`.
 2. **Deterministic High-Fidelity SVG / Canvas Fallbacks:**
    - For offline or local testing before remote asset generation, high-aesthetic vector gradient artwork with domain iconography is provided natively, guaranteeing zero missing asset crashes and beautiful visual presentation.
+

@@ -186,3 +186,4 @@ Synthesizes character speech via Gnani Timbre v2.5 / v3.0.
 ```
 
 **Response (200 OK):** Returns binary audio/wav or JSON payload containing Base64 / CDN audio URL.
+

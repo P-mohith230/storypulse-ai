@@ -84,3 +84,4 @@
 | **R-02** | LLM hallucinating impossible clues | High | Low | Ground truth locked in deterministic Narrative Engine; LLM only formats character dialogue. |
 | **R-03** | Audio latency on slow cellular connections | Medium | Medium | Pre-cache common audio lines, stream transcripts, show animated typing while audio synthesizes. |
 | **R-04** | Android permissions rejection for mic | Medium | Medium | Provide seamless inline keyboard action bar with full feature parity. |
+

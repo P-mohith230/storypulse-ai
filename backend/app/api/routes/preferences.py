@@ -21,3 +21,4 @@ def update_preferences(prefs: UserPreference):
     global _in_memory_prefs
     _in_memory_prefs = prefs
     return _in_memory_prefs
+

@@ -92,3 +92,4 @@ class SynthesizeResponse(BaseModel):
     audio_url: str
     status: str
     provider: str
+

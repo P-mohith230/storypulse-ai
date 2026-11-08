@@ -78,3 +78,4 @@ class StoryDataLoader:
         return results
 
 story_loader = StoryDataLoader()
+

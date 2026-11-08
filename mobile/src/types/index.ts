@@ -62,3 +62,4 @@ export interface UserPreferences {
   haptic_enabled: boolean;
   subtitles_enabled: boolean;
 }
+
