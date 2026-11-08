@@ -1,0 +1,16 @@
+{
+  "clue_rejected_stamp": {
+    "id": "clue_rejected_stamp",
+    "title": "Red 'INSUFFICIENT PLAUSIBILITY' Stamp",
+    "description": "A heavy rubber stamp with dried red ink, worn down by 14,000 rejections today.",
+    "thumbnail": "/assets/images/clues/clue_rejected_stamp.png",
+    "lore": "Used by EXCUSE-BOT to shut down any creative justification for being late."
+  },
+  "clue_quantum_dog": {
+    "id": "clue_quantum_dog",
+    "title": "Affidavit of the Quantum Dog",
+    "description": "A sworn statement arguing the homework existed and did not exist simultaneously.",
+    "thumbnail": "/assets/images/clues/clue_quantum_dog.png",
+    "lore": "The only philosophical loophole that causes the AI logic gate to overheat."
+  }
+}

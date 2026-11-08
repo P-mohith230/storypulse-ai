@@ -1,0 +1,12 @@
+{
+  "id": "thriller",
+  "title": "Platform Zero",
+  "domain": "thriller",
+  "tagline": "The next announcement describes your next mistake.",
+  "duration_min": 5,
+  "moods": ["Excited", "Stressed"],
+  "initial_scene_id": "scene_carriage",
+  "initial_clues": ["clue_ghost_ticket"],
+  "cover_image": "/assets/images/covers/cover_thriller.png",
+  "featured": false
+}

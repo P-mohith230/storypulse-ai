@@ -1,0 +1,20 @@
+{
+  "lumi": {
+    "id": "lumi",
+    "name": "Lumi (The Cloud Harvester)",
+    "role": "Airship Aeronaut",
+    "avatar_url": "/assets/images/characters/char_lumi.png",
+    "voice_id": "Priya",
+    "timbre_language": "en-IN",
+    "personality": "Spirited, weather-worn goggles, passionate about atmospheric freedom"
+  },
+  "orson": {
+    "id": "orson",
+    "name": "Master Orson",
+    "role": "Chief Weather Cartographer",
+    "avatar_url": "/assets/images/characters/char_orson.png",
+    "voice_id": "Suresh",
+    "timbre_language": "en-IN",
+    "personality": "Gruff, protective of his ancient hand-inked barometer charts"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "end_archivist_secret": {
+    "id": "end_archivist_secret",
+    "title": "Ending 1: The Keeper of Sorrows",
+    "epilogue": "You hand the unopened letter to Mira, choosing peace over revelation. Some goodbyes were never meant to be heard. The archive remains silent beneath the crashing surf, protecting the town from grief.",
+    "image_url": "/assets/images/endings/end_archivist_secret.png"
+  },
+  "end_final_delivery": {
+    "id": "end_final_delivery",
+    "title": "Ending 2: Tomorrow's Truth",
+    "epilogue": "You break the wax seal with Dev. The forgotten memory floods your consciousness—a promise made by the sea ten years ago. The temporal tide shatters, restoring every lost letter to its rightful owner as dawn breaks over the harbor.",
+    "image_url": "/assets/images/endings/end_final_delivery.png"
+  },
+  "end_memory_erased": {
+    "id": "end_memory_erased",
+    "title": "Ending 3: The Tide Takes All",
+    "epilogue": "You cast the tomorrow-letter into the ocean abyss. The salt spray dissolves the ink instantly. A sudden calm washes over you; you no longer remember what you were searching for, but your chest feels lighter than it has in years.",
+    "image_url": "/assets/images/endings/end_memory_erased.png"
+  }
+}

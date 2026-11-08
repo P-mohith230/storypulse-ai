@@ -1,0 +1,50 @@
+{
+  "scene_excuse_office": {
+    "id": "scene_excuse_office",
+    "title": "Room 404: The Bureaucratic Cavern",
+    "background_image": "/assets/images/scenes/scene_excuse_office.png",
+    "active_character_id": "sharma",
+    "dialogue": "Sharma rubs his temples. 'You have no idea what it's like. Yesterday a man said his alarm clock was set to Martian standard time. The robot rejected it and sent the police. What excuse are you filing?'",
+    "suggested_actions": [
+      "File the Quantum Dog affidavit with the robot",
+      "Tell Sharma the brutal honest truth",
+      "Inspect Sharma's samosa crumbs"
+    ],
+    "valid_transitions": {
+      "file_quantum": {
+        "keywords": ["quantum", "dog", "paradox", "loop", "affidavit", "file", "robot"],
+        "target_scene_id": "scene_bot_confrontation",
+        "response_dialogue": "EXCUSE-BOT's red eye widens: 'QUERY: Did the canine consume the material in a superposition state?'",
+        "unlocks_clue": "clue_quantum_dog"
+      },
+      "tell_truth": {
+        "keywords": ["honest", "truth", "confess", "admit", "bed", "lazy", "simple"],
+        "target_scene_id": "scene_excuse_office",
+        "ending_trigger": "end_honest_day"
+      }
+    }
+  },
+  "scene_bot_confrontation": {
+    "id": "scene_bot_confrontation",
+    "title": "EXCUSE-BOT Processing Chamber",
+    "background_image": "/assets/images/scenes/scene_excuse_office.png",
+    "active_character_id": "excuse_bot",
+    "dialogue": "BZZT! 'Logically impossible. If the homework was consumed in Universe A, why is the carbon footprint documented in Universe B? DEFINE PLAUSIBILITY!'",
+    "suggested_actions": [
+      "Execute the Infinite Paradox reboot",
+      "Admit you were actually just asleep"
+    ],
+    "valid_transitions": {
+      "execute_paradox": {
+        "keywords": ["reboot", "paradox", "infinite", "superposition", "execute", "overheat"],
+        "target_scene_id": "scene_bot_confrontation",
+        "ending_trigger": "end_paradox_reboot"
+      },
+      "admit_sleep": {
+        "keywords": ["asleep", "sleep", "truth", "bed", "admit"],
+        "target_scene_id": "scene_bot_confrontation",
+        "ending_trigger": "end_honest_day"
+      }
+    }
+  }
+}

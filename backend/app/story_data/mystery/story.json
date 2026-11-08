@@ -1,0 +1,12 @@
+{
+  "id": "mystery",
+  "title": "The Archive of Unsent Goodbyes",
+  "domain": "mystery",
+  "tagline": "Some memories are sealed for a reason.",
+  "duration_min": 10,
+  "moods": ["Curious", "Reflective"],
+  "initial_scene_id": "scene_cliffside",
+  "initial_clues": ["clue_tomorrow_letter"],
+  "cover_image": "/assets/images/covers/cover_mystery.png",
+  "featured": true
+}

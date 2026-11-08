@@ -1,0 +1,14 @@
+{
+  "end_platform_zero_arrival": {
+    "id": "end_platform_zero_arrival",
+    "title": "Ending 1: The Hidden Grid",
+    "epilogue": "You step out onto Platform Zero into dense white fog. A subterranean operations hub blinks alive before you. You have uncovered the city's covert emergency transit network.",
+    "image_url": "/assets/images/endings/end_platform_zero_arrival.png"
+  },
+  "end_emergency_override": {
+    "id": "end_emergency_override",
+    "title": "Ending 2: Daylight Escape",
+    "epilogue": "You pull the pneumatic bypass key. Sparks fly, the emergency brakes engage with a deafening screech, and the train shunts back onto Line 3, rolling safely into daylight.",
+    "image_url": "/assets/images/endings/end_emergency_override.png"
+  }
+}

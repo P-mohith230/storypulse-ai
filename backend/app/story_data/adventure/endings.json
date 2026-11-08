@@ -1,0 +1,14 @@
+{
+  "end_restore_monsoon": {
+    "id": "end_restore_monsoon",
+    "title": "Ending 1: The Great Release",
+    "epilogue": "You break the great seals of the Weather Vault above the arid plains. Thousands of captured clouds rise into the sky, unleashing torrential life-giving rains across the continent.",
+    "image_url": "/assets/images/endings/end_restore_monsoon.png"
+  },
+  "end_sky_sanctuary": {
+    "id": "end_sky_sanctuary",
+    "title": "Ending 2: The Island in the Clouds",
+    "epilogue": "You steer Lumi's airship into the heart of the permanent cumulus eye, discovering the floating botanical haven kept secret from the barons of the ground.",
+    "image_url": "/assets/images/endings/end_sky_sanctuary.png"
+  }
+}

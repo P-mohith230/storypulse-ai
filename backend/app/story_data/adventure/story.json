@@ -1,0 +1,12 @@
+{
+  "id": "adventure",
+  "title": "The Atlas of Borrowed Weather",
+  "domain": "adventure",
+  "tagline": "Some lands exist only when the monsoon is traded.",
+  "duration_min": 10,
+  "moods": ["Adventurous", "Relaxed"],
+  "initial_scene_id": "scene_weather_bazaar",
+  "initial_clues": ["clue_weather_vial"],
+  "cover_image": "/assets/images/covers/cover_adventure.png",
+  "featured": false
+}

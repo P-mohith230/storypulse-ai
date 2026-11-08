@@ -1,0 +1,50 @@
+{
+  "scene_weather_bazaar": {
+    "id": "scene_weather_bazaar",
+    "title": "The Cloud Bazaar",
+    "background_image": "/assets/images/scenes/scene_weather_bazaar.png",
+    "active_character_id": "lumi",
+    "dialogue": "Lumi adjusts her leather flight jacket. 'Look at this market—merchants selling jars of mountain mist while whole farming districts wither below. If we chart the stolen monsoon storm, we can free it. Are you boarding the skiff?'",
+    "suggested_actions": [
+      "Board Lumi's air skiff",
+      "Ask Master Orson about the atlas map",
+      "Examine the petrichor vial in your hand"
+    ],
+    "valid_transitions": {
+      "board_skiff": {
+        "keywords": ["board", "skiff", "airship", "fly", "climb", "lumi", "go", "ready"],
+        "target_scene_id": "scene_sky_ascent",
+        "response_dialogue": "The skiff's thermal balloon inflates with a deep roar. The market floor falls away beneath a sea of sunset amber.",
+        "unlocks_clue": "clue_monsoon_compass"
+      },
+      "talk_orson": {
+        "keywords": ["orson", "atlas", "map", "ask", "parchment", "cartographer"],
+        "target_scene_id": "scene_weather_bazaar",
+        "response_dialogue": "Master Orson taps the page. 'The ink responds only to moisture. Drop three drops of rain on the border and watch the archipelago awaken.'"
+      }
+    }
+  },
+  "scene_sky_ascent": {
+    "id": "scene_sky_ascent",
+    "title": "Ascent into the Tempest Eye",
+    "background_image": "/assets/images/scenes/scene_sky_ascent.png",
+    "active_character_id": "lumi",
+    "dialogue": "Winds howl around the rigging. Ahead lies the iron-clad Weather Vault holding the monsoon captive. 'We can either blast the valve to let the rain fall on the world, or steer into the inner eye to hide the storm forever!'",
+    "suggested_actions": [
+      "Blast open the vault valve to restore the rains",
+      "Steer the skiff into the hidden cloud eye"
+    ],
+    "valid_transitions": {
+      "release_rains": {
+        "keywords": ["blast", "valve", "open", "rain", "restore", "free", "vault"],
+        "target_scene_id": "scene_sky_ascent",
+        "ending_trigger": "end_restore_monsoon"
+      },
+      "hide_sanctuary": {
+        "keywords": ["eye", "steer", "sanctuary", "cloud", "hidden", "island"],
+        "target_scene_id": "scene_sky_ascent",
+        "ending_trigger": "end_sky_sanctuary"
+      }
+    }
+  }
+}

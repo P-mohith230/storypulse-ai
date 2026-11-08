@@ -1,0 +1,20 @@
+{
+  "rao": {
+    "id": "rao",
+    "name": "Commander Rao (T+19h)",
+    "role": "Chief Scientist, Shackleton Base",
+    "avatar_url": "/assets/images/characters/char_rao.png",
+    "voice_id": "Suresh",
+    "timbre_language": "en-IN",
+    "personality": "Static-laced, breathless, urgent, calculating temporal decay coefficients"
+  },
+  "tara": {
+    "id": "tara",
+    "name": "Tara (Earth Flight Controller)",
+    "role": "Hyderabad Deep Space Center",
+    "avatar_url": "/assets/images/characters/char_tara.png",
+    "voice_id": "Nalini",
+    "timbre_language": "en-IN",
+    "personality": "Methodical, sharp, verifying quantum wave telemetry"
+  }
+}

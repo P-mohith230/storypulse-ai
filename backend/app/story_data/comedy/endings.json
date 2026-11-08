@@ -1,0 +1,14 @@
+{
+  "end_paradox_reboot": {
+    "id": "end_paradox_reboot",
+    "title": "Ending 1: The Infinite Loop Reboot",
+    "epilogue": "You present the Quantum Dog Paradox. Steam shoots from EXCUSE-BOT's auditory sensors. With a musical chime, it reboots into 'Lenient Mode' and approves every excuse in the city.",
+    "image_url": "/assets/images/endings/end_paradox_reboot.png"
+  },
+  "end_honest_day": {
+    "id": "end_honest_day",
+    "title": "Ending 2: The Day of Unvarnished Truth",
+    "epilogue": "You declare that people should simply admit: 'I just didn't want to get out of bed.' Shockingly, civic efficiency doubles as people stop making excuses altogether.",
+    "image_url": "/assets/images/endings/end_honest_day.png"
+  }
+}

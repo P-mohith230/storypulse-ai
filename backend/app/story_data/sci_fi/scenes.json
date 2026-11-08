@@ -1,0 +1,50 @@
+{
+  "scene_lunar_comms": {
+    "id": "scene_lunar_comms",
+    "title": "Deep Space Telemetry Lab, Hyderabad",
+    "background_image": "/assets/images/scenes/scene_lunar_comms.png",
+    "active_character_id": "rao",
+    "dialogue": "Radio static bursts through the headphones: 'Tara... if you're hearing this on Sunday, Solar Tower 4 breached its coolant line nineteen hours ago. Or rather... nineteen hours from now. Stop the ignition protocol before 08:00.'",
+    "suggested_actions": [
+      "Verify the quantum frequency with Tara",
+      "Upload the emergency coolant patch to the lunar array",
+      "Ask Rao how he opened the time channel"
+    ],
+    "valid_transitions": {
+      "verify_telemetry": {
+        "keywords": ["verify", "telemetry", "tara", "frequency", "check", "signal", "quantum"],
+        "target_scene_id": "scene_quantum_override",
+        "response_dialogue": "Tara locks onto the signal carrier: 'The chronometric signature is genuine. The packet is coming from tomorrow morning.'",
+        "unlocks_clue": "clue_coolant_schematic"
+      },
+      "upload_patch": {
+        "keywords": ["upload", "patch", "override", "signal", "prevent", "send", "stop"],
+        "target_scene_id": "scene_lunar_comms",
+        "ending_trigger": "end_timeline_prevented"
+      }
+    }
+  },
+  "scene_quantum_override": {
+    "id": "scene_quantum_override",
+    "title": "The Quantum Transmission Console",
+    "background_image": "/assets/images/scenes/scene_lunar_comms.png",
+    "active_character_id": "tara",
+    "dialogue": "Tara has her hand hovered over the transmitter: 'We have one burst transmission window. If we transmit the shutdown code, we alter the future. If the code causes the failure, we lock ourselves in a paradox. What do you order?'",
+    "suggested_actions": [
+      "Transmit the direct shutdown command immediately",
+      "Transmit the exact voice note back to warn Rao"
+    ],
+    "valid_transitions": {
+      "transmit_shutdown": {
+        "keywords": ["shutdown", "transmit", "code", "prevent", "alter", "direct"],
+        "target_scene_id": "scene_quantum_override",
+        "ending_trigger": "end_timeline_prevented"
+      },
+      "transmit_loop": {
+        "keywords": ["voice", "warn", "loop", "paradox", "echo", "past"],
+        "target_scene_id": "scene_quantum_override",
+        "ending_trigger": "end_bootstrap_paradox"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "clue_future_audio": {
+    "id": "clue_future_audio",
+    "title": "Quantum Voice Transmission T+19h",
+    "description": "An audio recording bearing a digital timestamp 19 hours in the future.",
+    "thumbnail": "/assets/images/clues/clue_future_audio.png",
+    "lore": "Rao's voice details a coolant valve breach at the south pole reactor."
+  },
+  "clue_coolant_schematic": {
+    "id": "clue_coolant_schematic",
+    "title": "Shackleton Reactor Blueprint",
+    "description": "Schematic indicating the manual bypass located on Solar Tower 4.",
+    "thumbnail": "/assets/images/clues/clue_coolant_schematic.png",
+    "lore": "The valve failure can be countermanded before the reactor boots up."
+  }
+}

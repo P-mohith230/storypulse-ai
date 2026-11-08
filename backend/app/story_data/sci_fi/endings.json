@@ -1,0 +1,14 @@
+{
+  "end_timeline_prevented": {
+    "id": "end_timeline_prevented",
+    "title": "Ending 1: The Erased Disaster",
+    "epilogue": "You transmit the valve override signal 19 hours before the accident occurs. On the lunar monitor, the future voice message dissolves into harmless static as the disaster is erased from time.",
+    "image_url": "/assets/images/endings/end_timeline_prevented.png"
+  },
+  "end_bootstrap_paradox": {
+    "id": "end_bootstrap_paradox",
+    "title": "Ending 2: The Bootstrap Transmission",
+    "epilogue": "You realize that your override command was what triggered the initial coolant failure in the first place. You record a voice note to your past self, completing the infinite loop.",
+    "image_url": "/assets/images/endings/end_bootstrap_paradox.png"
+  }
+}

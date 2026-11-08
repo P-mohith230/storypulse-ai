@@ -1,0 +1,29 @@
+{
+  "dev": {
+    "id": "dev",
+    "name": "Dev (The Postman)",
+    "role": "Confused Postal Carrier",
+    "avatar_url": "/assets/images/characters/char_dev.png",
+    "voice_id": "Kalyan",
+    "timbre_language": "en-IN",
+    "personality": "Nervous, earnest, clutching his mail satchel against the sea breeze"
+  },
+  "mira": {
+    "id": "mira",
+    "name": "Mira (The Archivist)",
+    "role": "Guardian of Unsent Letters",
+    "avatar_url": "/assets/images/characters/char_mira.png",
+    "voice_id": "Nalini",
+    "timbre_language": "en-IN",
+    "personality": "Quiet, sharp, speaks in riddles about ocean tides and forgotten days"
+  },
+  "listener": {
+    "id": "listener",
+    "name": "The Listener",
+    "role": "Voice in the Speaking Tube",
+    "avatar_url": "/assets/images/characters/char_listener.png",
+    "voice_id": "Aarav",
+    "timbre_language": "en-IN",
+    "personality": "Enigmatic, omniscient, echoes through the stone walls"
+  }
+}

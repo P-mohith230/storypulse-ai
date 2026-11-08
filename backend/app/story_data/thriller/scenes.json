@@ -1,0 +1,67 @@
+{
+  "scene_carriage": {
+    "id": "scene_carriage",
+    "title": "Midnight Carriage 104",
+    "background_image": "/assets/images/scenes/scene_carriage.png",
+    "active_character_id": "conductor",
+    "dialogue": "Intercom crackles: 'Attention passenger. Next station: St. Jude's, where you will drop your phone under seat 12.' You look down—your phone is in your palm.",
+    "suggested_actions": [
+      "Talk to the woman in the grey coat",
+      "Check the emergency brake box",
+      "Look out the blacked-out window"
+    ],
+    "valid_transitions": {
+      "talk_stranger": {
+        "keywords": ["talk", "woman", "grey", "coat", "passenger", "stranger", "ask"],
+        "target_scene_id": "scene_stranger_row",
+        "response_dialogue": "She lowers her blueprints. 'Don't listen to the announcements. The train feeds on compliance. Take this bypass key.'",
+        "unlocks_clue": "clue_emergency_key"
+      },
+      "check_brake": {
+        "keywords": ["brake", "emergency", "box", "pull", "panel", "override"],
+        "target_scene_id": "scene_brake_panel",
+        "response_dialogue": "You pry open the red emergency box. The main cable is intact, waiting for an authorization key."
+      }
+    }
+  },
+  "scene_stranger_row": {
+    "id": "scene_stranger_row",
+    "title": "Row 7 Blueprint Exchange",
+    "background_image": "/assets/images/scenes/scene_carriage.png",
+    "active_character_id": "stranger",
+    "dialogue": "The lights flicker red. 'We are approaching Platform Zero in sixty seconds. Decide now—do we jump onto the platform to investigate who runs this train, or trip the brake to get back to the real city?'",
+    "suggested_actions": [
+      "Prepare to disembark at Platform Zero",
+      "Run to the brake box and insert the key"
+    ],
+    "valid_transitions": {
+      "go_platform": {
+        "keywords": ["disembark", "platform", "zero", "jump", "exit", "doors", "investigate"],
+        "target_scene_id": "scene_stranger_row",
+        "ending_trigger": "end_platform_zero_arrival"
+      },
+      "pull_brake": {
+        "keywords": ["brake", "insert", "key", "pull", "override", "stop", "run"],
+        "target_scene_id": "scene_brake_panel",
+        "ending_trigger": "end_emergency_override"
+      }
+    }
+  },
+  "scene_brake_panel": {
+    "id": "scene_brake_panel",
+    "title": "The Emergency Console",
+    "background_image": "/assets/images/scenes/scene_carriage.png",
+    "active_character_id": "conductor",
+    "dialogue": "The speaker blares: 'Unauthorized access detected at emergency console. Final stop in three seconds.'",
+    "suggested_actions": [
+      "Turn the emergency key with all your strength"
+    ],
+    "valid_transitions": {
+      "emergency_turn": {
+        "keywords": ["turn", "key", "pull", "strength", "force"],
+        "target_scene_id": "scene_brake_panel",
+        "ending_trigger": "end_emergency_override"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "sci_fi",
+  "title": "The Moon Sends Voice Notes",
+  "domain": "sci_fi",
+  "tagline": "The voice message was received today. It was recorded nineteen hours from now.",
+  "duration_min": 10,
+  "moods": ["Curious", "Excited"],
+  "initial_scene_id": "scene_lunar_comms",
+  "initial_clues": ["clue_future_audio"],
+  "cover_image": "/assets/images/covers/cover_scifi.png",
+  "featured": false
+}

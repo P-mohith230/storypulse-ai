@@ -1,0 +1,23 @@
+{
+  "clue_ghost_ticket": {
+    "id": "clue_ghost_ticket",
+    "title": "Platform Zero Transit Pass",
+    "description": "A magnetic metro card with no expiry date, issued for Carriage 104.",
+    "thumbnail": "/assets/images/clues/clue_ghost_ticket.png",
+    "lore": "The ticket was already in your pocket when you woke up on the train."
+  },
+  "clue_intercom_log": {
+    "id": "clue_intercom_log",
+    "title": "Dispatch Route Schedule",
+    "description": "A printout indicating this line operates outside normal metropolitan coordinates.",
+    "thumbnail": "/assets/images/clues/clue_intercom_log.png",
+    "lore": "Highlights 'Platform Zero' as an emergency containment siding."
+  },
+  "clue_emergency_key": {
+    "id": "clue_emergency_key",
+    "title": "Conductor Bypass Key",
+    "description": "A triangular steel key retrieved from the passenger in grey.",
+    "thumbnail": "/assets/images/clues/clue_emergency_key.png",
+    "lore": "Manually overrides the pneumatic door locking mechanism."
+  }
+}

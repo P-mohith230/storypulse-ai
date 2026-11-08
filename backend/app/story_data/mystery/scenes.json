@@ -1,0 +1,103 @@
+{
+  "scene_cliffside": {
+    "id": "scene_cliffside",
+    "title": "The Salt Cliff Road",
+    "background_image": "/assets/images/scenes/scene_cliffside.png",
+    "active_character_id": "dev",
+    "dialogue": "I swear on my postal badge... I found this envelope in my satchel, but look at the purple postmark. It's dated tomorrow at 6:00 AM, addressed to your name. We have to get out of this rain.",
+    "suggested_actions": [
+      "Examine the tomorrow postmark",
+      "Ask Dev who gave him the satchel",
+      "Follow Dev toward the hidden lighthouse vault"
+    ],
+    "valid_transitions": {
+      "examine_postmark": {
+        "keywords": ["examine", "postmark", "look", "envelope", "letter", "read", "check"],
+        "target_scene_id": "scene_cliffside",
+        "response_dialogue": "The ink is shimmering like wet silver. The wax seal bears an emblem: an hourglass submerged in waves. Dev shivers as thunder rumbles.",
+        "unlocks_clue": "clue_weather_telegram"
+      },
+      "enter_vault": {
+        "keywords": ["follow", "vault", "lighthouse", "enter", "go", "door", "walk", "inside", "run"],
+        "target_scene_id": "scene_archive_vault",
+        "response_dialogue": "Dev leads you down a mossy stone stairway beneath the lighthouse base. A heavy iron door swings inward without a sound.",
+        "unlocks_clue": "clue_brass_vault_key"
+      }
+    }
+  },
+  "scene_archive_vault": {
+    "id": "scene_archive_vault",
+    "title": "The Subterranean Vault",
+    "background_image": "/assets/images/scenes/scene_archive_vault.png",
+    "active_character_id": "mira",
+    "dialogue": "Close that door before the salt spray ruins the paper. Every pigeonhole in these walls holds an unsent goodbye from people who couldn't bear to speak them. Why are you holding tomorrow's mail?",
+    "suggested_actions": [
+      "Show Mira the purple wax seal",
+      "Ask about the brass key in your pocket",
+      "Inspect the mahogany reading desk"
+    ],
+    "valid_transitions": {
+      "inspect_desk": {
+        "keywords": ["desk", "key", "drawer", "inspect", "unlock", "open", "read", "brass"],
+        "target_scene_id": "scene_reading_desk",
+        "required_clues": ["clue_brass_vault_key"],
+        "response_dialogue": "The brass key glides smoothly into the lock of Drawer 7. As it turns with a heavy thunk, a leather ledger and a silver locket slide into view.",
+        "unlocks_clue": "clue_archivist_log"
+      },
+      "question_mira": {
+        "keywords": ["who", "mira", "why", "archive", "letters", "whisper", "pigeonhole"],
+        "target_scene_id": "scene_archive_vault",
+        "response_dialogue": "Mira runs her hand across the wooden shelves. 'When people swallow their farewells, the words don't disappear. The sea collects them and washes them into this cavern. But tomorrow's letters... that only happens when someone is about to die.'",
+        "unlocks_clue": "clue_silver_locket"
+      }
+    }
+  },
+  "scene_reading_desk": {
+    "id": "scene_reading_desk",
+    "title": "The Reading Desk of Secrets",
+    "background_image": "/assets/images/scenes/scene_reading_desk.png",
+    "active_character_id": "listener",
+    "dialogue": "The voice tubes in the wall hum with resonance: 'The ledger has your handwriting from ten years ago, traveler. The tide is turning at the shore. Decide what becomes of tomorrow.'",
+    "suggested_actions": [
+      "Rush down to the shore with Dev and Mira",
+      "Confront Mira about the ledger",
+      "Hold the silver locket up to the light"
+    ],
+    "valid_transitions": {
+      "go_to_shore": {
+        "keywords": ["shore", "beach", "harbor", "go", "rush", "run", "water", "decide", "outside"],
+        "target_scene_id": "scene_shoreline_dawn",
+        "response_dialogue": "You burst out onto the foggy dawn beach. Waves are lapping against the stone breakwater. Dev and Mira stand on either side of you."
+      }
+    }
+  },
+  "scene_shoreline_dawn": {
+    "id": "scene_shoreline_dawn",
+    "title": "The Shoreline of Dawn",
+    "background_image": "/assets/images/scenes/scene_shoreline_dawn.png",
+    "active_character_id": "mira",
+    "dialogue": "The morning sun is cresting the horizon. 'You have three choices,' Mira whispers. 'Hand the letter back to the archive, break the seal to face the truth, or cast it into the tide forever.'",
+    "suggested_actions": [
+      "Hand the letter back to Mira to protect the archive",
+      "Break the purple seal and read tomorrow's truth",
+      "Throw the letter into the crashing ocean waves"
+    ],
+    "valid_transitions": {
+      "choose_archive": {
+        "keywords": ["hand", "give", "mira", "protect", "keep", "archive", "safe"],
+        "target_scene_id": "scene_shoreline_dawn",
+        "ending_trigger": "end_archivist_secret"
+      },
+      "choose_truth": {
+        "keywords": ["break", "seal", "read", "open", "truth", "dev", "memory"],
+        "target_scene_id": "scene_shoreline_dawn",
+        "ending_trigger": "end_final_delivery"
+      },
+      "choose_destroy": {
+        "keywords": ["throw", "ocean", "waves", "tide", "destroy", "burn", "cast", "water"],
+        "target_scene_id": "scene_shoreline_dawn",
+        "ending_trigger": "end_memory_erased"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "conductor": {
+    "id": "conductor",
+    "name": "Intercom Conductor",
+    "role": "Automated Transit Announcer",
+    "avatar_url": "/assets/images/characters/char_conductor.png",
+    "voice_id": "Vikram",
+    "timbre_language": "en-IN",
+    "personality": "Metallic, unsettlingly precise, broadcasts impossible future events"
+  },
+  "stranger": {
+    "id": "stranger",
+    "name": "The Woman in Grey",
+    "role": "Fellow Passenger",
+    "avatar_url": "/assets/images/characters/char_stranger.png",
+    "voice_id": "Priya",
+    "timbre_language": "en-IN",
+    "personality": "Nervous, checking her watch, clutching a folder with subway blueprints"
+  }
+}

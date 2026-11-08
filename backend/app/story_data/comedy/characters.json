@@ -1,0 +1,20 @@
+{
+  "sharma": {
+    "id": "sharma",
+    "name": "Clerk Sharma",
+    "role": "Senior Excuse Evaluator",
+    "avatar_url": "/assets/images/characters/char_sharma.png",
+    "voice_id": "Kalyan",
+    "timbre_language": "en-IN",
+    "personality": "Exhausted government employee clutching an overflowing thermos of chai"
+  },
+  "excuse_bot": {
+    "id": "excuse_bot",
+    "name": "EXCUSE-BOT-9000",
+    "role": "Autonomous Bureaucracy Engine",
+    "avatar_url": "/assets/images/characters/char_bot.png",
+    "voice_id": "Vikram",
+    "timbre_language": "en-IN",
+    "personality": "Ultra-literal, buzzes whenever an excuse lacks 4-decimal precision"
+  }
+}

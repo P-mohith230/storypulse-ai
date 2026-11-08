@@ -1,0 +1,37 @@
+{
+  "clue_tomorrow_letter": {
+    "id": "clue_tomorrow_letter",
+    "title": "The Tomorrow Letter",
+    "description": "A heavy cream envelope sealed with purple wax, postmarked tomorrow at 06:00 AM.",
+    "thumbnail": "/assets/images/clues/clue_tomorrow_letter.png",
+    "lore": "Addressed to your name in familiar cursive. It smells faintly of brine and dried lavender."
+  },
+  "clue_brass_vault_key": {
+    "id": "clue_brass_vault_key",
+    "title": "The Sea-Salt Brass Key (#7)",
+    "description": "An ornate brass key encrusted with dried salt, bearing the roman numeral VII.",
+    "thumbnail": "/assets/images/clues/clue_brass_vault_key.png",
+    "lore": "Unlocks the seventh drawer in the subterranean archive reading desk."
+  },
+  "clue_archivist_log": {
+    "id": "clue_archivist_log",
+    "title": "The Archivist's Secret Logbook",
+    "description": "A ledger tracking memories confiscated from town residents before they could be spoken.",
+    "thumbnail": "/assets/images/clues/clue_archivist_log.png",
+    "lore": "Contains entries dating back thirty years, all marked 'Collected to prevent heartbreak'."
+  },
+  "clue_silver_locket": {
+    "id": "clue_silver_locket",
+    "title": "The Blank Paper Locket",
+    "description": "A tarnished silver pendant containing a folded slip of translucent rice paper.",
+    "thumbnail": "/assets/images/clues/clue_silver_locket.png",
+    "lore": "Held close to the lantern flame, faint glowing script appears: 'Do not let tomorrow forget us.'"
+  },
+  "clue_weather_telegram": {
+    "id": "clue_weather_telegram",
+    "title": "Meteorological Telegram",
+    "description": "Faded telegraph tape warning of temporal tide fluctuations along the southern cliffs.",
+    "thumbnail": "/assets/images/clues/clue_weather_telegram.png",
+    "lore": "Confirms the sea carries discarded memories onto shore whenever high tide hits the lighthouse."
+  }
+}

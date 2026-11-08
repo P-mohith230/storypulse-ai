@@ -1,0 +1,12 @@
+{
+  "id": "comedy",
+  "title": "The Department of Lost Excuses",
+  "domain": "comedy",
+  "tagline": "The AI auditor rejects your excuse: 'The dog did not eat your homework.'",
+  "duration_min": 5,
+  "moods": ["Bored", "Playful"],
+  "initial_scene_id": "scene_excuse_office",
+  "initial_clues": ["clue_rejected_stamp"],
+  "cover_image": "/assets/images/covers/cover_comedy.png",
+  "featured": false
+}
