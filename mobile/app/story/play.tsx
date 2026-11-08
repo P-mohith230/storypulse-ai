@@ -82,7 +82,7 @@ export default function GameplayScreen() {
     }
   };
 
-  const handleSendAction = async (actionText: string, modality: "VOICE" | "TEXT" = "TEXT") => {
+  const handleSendAction = async (actionText: string, modality: "VOICE" | "TEXT" | "TOUCH_TAP" = "TEXT") => {
     if (!activeSession || loadingAction) return;
     setLoadingAction(true);
 
@@ -429,3 +429,4 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
 });
+
