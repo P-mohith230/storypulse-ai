@@ -153,6 +153,10 @@
         btn.classList.remove("active");
       }
     });
+
+    if (viewName === "viewSettings") {
+      renderHistory();
+    }
   }
 
   // --- RENDER CATALOG ---
@@ -519,6 +523,40 @@
       startSelectedStory();
     } else {
       switchView("viewDiscover");
+    }
+  }
+
+  // --- SESSION HISTORY ---
+  async function renderHistory() {
+    const list = document.getElementById("historyList");
+    if (!list) return;
+    try {
+      const res = await fetch(`${API_BASE}/api/v1/sessions?limit=10`);
+      const sessions = await res.json();
+      if (!sessions || sessions.length === 0) {
+        list.innerHTML = `<div class="clue-item-card" style="text-align:center; padding:20px; color:var(--text-muted)"><p>No recorded sessions yet. Start a story to write history!</p></div>`;
+        return;
+      }
+      list.innerHTML = "";
+      sessions.forEach(s => {
+        const item = document.createElement("div");
+        item.className = "clue-item-card";
+        const dateStr = s.started_at ? new Date(s.started_at).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : "Recent";
+        item.innerHTML = `
+          <div class="clue-info" style="width:100%">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong style="color:var(--text-primary); text-transform:uppercase">${s.story_id}</strong>
+              <span class="badge-tag" style="color:${s.is_completed ? '#34D399' : '#F59E0B'}">${s.status}</span>
+            </div>
+            <p style="font-size:12px; color:var(--text-secondary); margin-top:4px;">
+              ⏱ ${s.duration_target}m target • 🎭 ${s.mood_selected} • 🔍 ${s.discovered_clues_count} clues found • ${dateStr}
+            </p>
+          </div>
+        `;
+        list.appendChild(item);
+      });
+    } catch (e) {
+      console.warn("Failed to load session history:", e);
     }
   }
 
