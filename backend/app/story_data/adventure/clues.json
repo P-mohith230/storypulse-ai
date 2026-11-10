@@ -4,14 +4,18 @@
     "title": "Vial of Captured Petrichor",
     "description": "A glass vial containing compressed monsoon scent that swirls with tiny lightning arcs.",
     "thumbnail": "/assets/images/clues/clue_weather_vial.png",
-    "lore": "When uncorked, causes parchment to reveal hidden elevation contours."
+    "lore": "When uncorked, causes parchment to reveal hidden elevation contours.",
+    "altitude_rating": "3,400 meters ASL",
+    "atmospheric_charge": "450 kV/m"
   },
   "clue_monsoon_compass": {
     "id": "clue_monsoon_compass",
     "title": "Barometric Compass",
     "description": "Points not toward north, but toward areas of highest atmospheric depression.",
     "thumbnail": "/assets/images/clues/clue_monsoon_compass.png",
-    "lore": "Guided ancient navigators to the hidden Cloud Archipelago."
+    "lore": "Guided ancient navigators to the hidden Cloud Archipelago.",
+    "altitude_rating": "All Strata",
+    "atmospheric_charge": "Neutral"
   }
 }
 
