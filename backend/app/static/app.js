@@ -236,6 +236,14 @@
     el.clueCountBadge.textContent = session.discovered_clues ? session.discovered_clues.length : 1;
     AmbientEngine.playTone(session.story_id);
 
+    // Update session progress bar
+    const pBar = document.getElementById("sessionProgressBar");
+    if (pBar) {
+      const clueCount = session.discovered_clues ? session.discovered_clues.length : 1;
+      const pct = session.is_completed ? 100 : Math.min(90, clueCount * 30);
+      pBar.style.width = `${pct}%`;
+    }
+
     // Scene Canvas
     const sceneImgUrl = scene.background_image.replace("/assets/images", "/static/images");
     el.sceneImage.src = sceneImgUrl;

@@ -1168,3 +1168,21 @@ input:checked + .slider:before {
   line-height: 18px;
   color: #E2E8F0;
 }
+
+/* ================= SESSION PACING PROGRESS BAR ================= */
+.session-progress-wrap {
+  width: 100%;
+  height: 3px;
+  background: var(--surface-2);
+  margin-bottom: 12px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.session-progress-bar {
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(90deg, var(--accent-purple), #10B981);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+}
