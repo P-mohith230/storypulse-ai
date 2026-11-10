@@ -6,7 +6,8 @@
     "avatar_url": "/assets/images/characters/char_dev.png",
     "voice_id": "Kalyan",
     "timbre_language": "en-IN",
-    "personality": "Nervous, earnest, clutching his mail satchel against the sea breeze"
+    "personality": "Nervous, earnest, clutching his mail satchel against the sea breeze",
+    "lore": "Third-generation postman in Morjim Port. Has memorized every address in the district but cannot recall delivery routes dated in the future."
   },
   "mira": {
     "id": "mira",
@@ -15,7 +16,8 @@
     "avatar_url": "/assets/images/characters/char_mira.png",
     "voice_id": "Nalini",
     "timbre_language": "en-IN",
-    "personality": "Quiet, sharp, speaks in riddles about ocean tides and forgotten days"
+    "personality": "Quiet, sharp, speaks in riddles about ocean tides and forgotten days",
+    "lore": "Former maritime clerk who took custody of the coastal vault after the Great Fog of 1982. Guards drawer 7 with a brass latch."
   },
   "listener": {
     "id": "listener",
@@ -24,7 +26,8 @@
     "avatar_url": "/assets/images/characters/char_listener.png",
     "voice_id": "Aarav",
     "timbre_language": "en-IN",
-    "personality": "Enigmatic, omniscient, echoes through the stone walls"
+    "personality": "Enigmatic, omniscient, echoes through the stone walls",
+    "lore": "An omnipresent acoustic echo circulating through the salt-encrusted speaking pipes beneath the cliffside road."
   }
 }
 
