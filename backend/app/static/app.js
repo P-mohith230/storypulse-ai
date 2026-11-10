@@ -234,6 +234,7 @@
     // Header & Location
     el.locationText.textContent = scene.title;
     el.clueCountBadge.textContent = session.discovered_clues ? session.discovered_clues.length : 1;
+    AmbientEngine.playTone(session.story_id);
 
     // Scene Canvas
     const sceneImgUrl = scene.background_image.replace("/assets/images", "/static/images");
@@ -317,6 +318,47 @@
     el.actionInput.value = "";
     submitAction(text, "TEXT");
   }
+
+  // --- WEB AUDIO SYNTHESIS & AMBIENT DRONE ---
+  const AmbientEngine = {
+    ctx: null,
+    osc: null,
+    gain: null,
+    init() {
+      if (!this.ctx && (window.AudioContext || window.webkitAudioContext)) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        this.ctx = new AudioCtx();
+      }
+    },
+    playTone(domain) {
+      try {
+        this.init();
+        if (!this.ctx) return;
+        if (this.ctx.state === "suspended") this.ctx.resume();
+        const freqs = {
+          mystery: 174,   // Solfeggio soothing coastal ground
+          thriller: 110,  // Deep low metro hum
+          adventure: 285, // Uplifting celestial breeze
+          comedy: 220,    // Warm playful baseline
+          sci_fi: 144     // Deep space resonance
+        };
+        const f = freqs[domain] || 174;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(f, this.ctx.currentTime);
+        gain.gain.setValueAtTime(0.001, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.04, this.ctx.currentTime + 1.5);
+        gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 6.0);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start();
+        osc.stop(this.ctx.currentTime + 6.2);
+      } catch (e) {
+        console.debug("Ambient audio note skipped:", e);
+      }
+    }
+  };
 
   // --- WEBRTC / MEDIARECORDER IN-BROWSER VOICE CAPTURE ---
   async function startVoiceRecording() {
