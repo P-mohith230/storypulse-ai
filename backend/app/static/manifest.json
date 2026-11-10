@@ -1,0 +1,25 @@
+{
+  "name": "StoryPulse AI — Interactive Storytelling",
+  "short_name": "StoryPulse",
+  "description": "Your moments. Your mood. Your story. AI-powered cinematic storytelling platform.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0D14",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/static/images/covers/cover_mystery.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/covers/cover_mystery.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["entertainment", "games", "books"]
+}
