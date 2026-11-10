@@ -490,6 +490,13 @@
       if (e.key === "Enter") sendTypedAction();
     };
 
+    // Service Worker Registration for PWA caching
+    if ("serviceWorker" in navigator && window.location.protocol.startsWith("http")) {
+      navigator.serviceWorker.register("/static/sw.js").catch((err) => {
+        console.debug("ServiceWorker registration skipped:", err);
+      });
+    }
+
     // Global Object for HTML onclick references
     window.storyPulse = {
       navigateHome: () => switchView("viewDiscover"),
