@@ -89,3 +89,28 @@ def test_invalid_action_graceful_handling():
     assert not is_completed
     assert "doesn't seem to help" in payload["dialogue"]
 
+def test_thriller_platform_zero_branching():
+    session = StorySession(
+        session_id="test-session-thriller",
+        story_id="thriller",
+        current_scene_id="scene_carriage",
+        discovered_clues=["clue_ghost_ticket"]
+    )
+    
+    # Talk to stranger -> unlocks emergency key
+    session, payload, clue, is_completed = narrative_engine.evaluate_action(
+        session=session,
+        action_text="Talk to the woman in the grey coat about the blueprints"
+    )
+    assert session.current_scene_id == "scene_stranger_row"
+    assert "clue_emergency_key" in session.discovered_clues
+
+    # Override brake -> triggers end_emergency_override
+    session, payload, clue, is_completed = narrative_engine.evaluate_action(
+        session=session,
+        action_text="Run to the brake box and insert the emergency key"
+    )
+    assert is_completed
+    assert session.ending_id == "end_emergency_override"
+
+
