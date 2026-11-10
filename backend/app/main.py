@@ -1,8 +1,8 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 from app.core.config import settings
 from app.core.database import init_db
 from app.api.routes import health
@@ -15,6 +15,16 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc"
 )
+
+# Security and cache-control middleware
+@app.middleware("http")
+async def add_security_and_cache_headers(request: Request, call_next):
+    response: Response = await call_next(request)
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    if request.url.path.startswith("/static/images/"):
+        response.headers["Cache-Control"] = "public, max-age=86400, immutable"
+    return response
 
 # CORS setup for mobile and web testing
 app.add_middleware(
