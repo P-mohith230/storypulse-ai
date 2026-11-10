@@ -57,8 +57,17 @@ def serve_spa():
 if os.path.exists(STATIC_DIR):
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
-# Include routers
+# Favicon handler
+@app.get("/favicon.ico", include_in_schema=False)
+def favicon():
+    icon_path = os.path.join(STATIC_DIR, "images", "covers", "cover_mystery.png")
+    if os.path.exists(icon_path):
+        return FileResponse(icon_path, media_type="image/png")
+    return Response(status_code=204)
+
+# Include routers (supports /health and /api/health)
 app.include_router(health.router, tags=["System Health"])
+app.include_router(health.router, prefix="/api", tags=["System Health"])
 app.include_router(api_router, prefix="/api/v1")
 
 if __name__ == "__main__":
