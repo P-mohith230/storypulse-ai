@@ -1,5 +1,7 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from typing import Optional, List, Dict, Any
+
+VALID_MOODS = {"Curious", "Excited", "Relaxed", "Bored", "Playful"}
 
 # Health Schemas
 class HealthResponse(BaseModel):
@@ -58,6 +60,25 @@ class CreateSessionRequest(BaseModel):
     duration_target: int = Field(default=5, ge=2, le=30)
     mood_selected: str = Field(default="Curious")
     preferred_lang: str = Field(default="en-IN")
+
+    @field_validator("mood_selected")
+    @classmethod
+    def validate_mood(cls, v: str) -> str:
+        cleaned = v.strip().title()
+        if cleaned not in VALID_MOODS:
+            return "Curious"
+        return cleaned
+
+class SessionHistoryItem(BaseModel):
+    session_id: str
+    story_id: str
+    status: str
+    current_scene_id: str
+    duration_target: int
+    mood_selected: str
+    discovered_clues_count: int
+    started_at: str
+    is_completed: bool
 
 class SessionActionRequest(BaseModel):
     action_text: str
