@@ -1224,3 +1224,19 @@ input:checked + .slider:before {
 .action-chip:active {
   transform: scale(0.97);
 }
+
+/* ================= SAFE AREA INSETS (MOBILE NOTCH & GESTURE BAR) ================= */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .app-header {
+    padding-top: calc(14px + env(safe-area-inset-top));
+  }
+
+  .bottom-tab-bar {
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    height: calc(64px + env(safe-area-inset-bottom));
+  }
+
+  .app-main {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+}
