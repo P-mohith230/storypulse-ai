@@ -57,3 +57,15 @@ def test_session_lifecycle():
     assert action_data["newly_unlocked_clue"] is not None
     assert action_data["newly_unlocked_clue"]["id"] == "clue_weather_telegram"
 
+def test_list_sessions_endpoint():
+    resp = client.get("/api/v1/sessions?limit=5")
+    assert resp.status_code == 200
+    sessions = resp.json()
+    assert isinstance(sessions, list)
+    if len(sessions) > 0:
+        s = sessions[0]
+        assert "session_id" in s
+        assert "story_id" in s
+        assert "status" in s
+
+
