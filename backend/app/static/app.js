@@ -174,7 +174,7 @@
 
       card.innerHTML = `
         <div class="story-cover-wrap">
-          <img src="${coverUrl}" alt="${story.title}" class="story-cover-img" onerror="this.src='/static/images/covers/cover_mystery.png'">
+          <img src="${coverUrl}" alt="${story.title}" class="story-cover-img" loading="lazy" decoding="async" onerror="this.src='/static/images/covers/cover_mystery.png'">
           <div class="story-overlay">
             <div class="story-top-row">
               <span class="domain-badge" style="background:${theme.primary}">${theme.badge}</span>
