@@ -116,5 +116,35 @@ class SessionRepository:
             row = cursor.fetchone()
             return row["cnt"] if row else 0
 
+    def list_recent_sessions(self, limit: int = 20) -> List[StorySession]:
+        with get_db() as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                """
+                SELECT * FROM story_sessions 
+                ORDER BY updated_at DESC LIMIT ?
+                """,
+                (limit,)
+            )
+            rows = cursor.fetchall()
+            results = []
+            for row in rows:
+                results.append(StorySession(
+                    session_id=row["session_id"],
+                    user_id=row["user_id"],
+                    story_id=row["story_id"],
+                    current_scene_id=row["current_scene_id"],
+                    status=row["status"],
+                    duration_target=row["duration_target"],
+                    mood_selected=row["mood_selected"],
+                    ending_id=row["ending_id"],
+                    discovered_clues=json.loads(row["discovered_clues_json"] or "[]"),
+                    character_memory=json.loads(row["character_memory_json"] or "{}"),
+                    started_at=datetime.fromisoformat(row["started_at"]) if row["started_at"] else datetime.utcnow(),
+                    updated_at=datetime.fromisoformat(row["updated_at"]) if row["updated_at"] else datetime.utcnow(),
+                    completed_at=datetime.fromisoformat(row["completed_at"]) if row["completed_at"] else None,
+                ))
+            return results
+
 session_repo = SessionRepository()
 

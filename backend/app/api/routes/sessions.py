@@ -8,7 +8,8 @@ from app.schemas.schemas import (
     SessionStateResponse,
     SceneResponse,
     ClueSummary,
-    ActiveCharacterInfo
+    ActiveCharacterInfo,
+    SessionHistoryItem
 )
 from app.models.domain import StorySession, SessionAction
 from app.repositories.session_repo import session_repo
@@ -17,6 +18,24 @@ from app.services.narrative.engine import narrative_engine
 from app.services.gnani.timbre_service import timbre_service
 
 router = APIRouter()
+
+@router.get("", response_model=List[SessionHistoryItem])
+def list_sessions(limit: int = 20):
+    sessions = session_repo.list_recent_sessions(limit=limit)
+    history = []
+    for s in sessions:
+        history.append(SessionHistoryItem(
+            session_id=s.session_id,
+            story_id=s.story_id,
+            status=s.status,
+            current_scene_id=s.current_scene_id,
+            duration_target=s.duration_target,
+            mood_selected=s.mood_selected,
+            discovered_clues_count=len(s.discovered_clues),
+            started_at=s.started_at.isoformat(),
+            is_completed=(s.status == "COMPLETED")
+        ))
+    return history
 
 @router.post("", response_model=SessionStateResponse, status_code=201)
 def create_session(payload: CreateSessionRequest):
