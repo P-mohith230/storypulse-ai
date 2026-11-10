@@ -4,13 +4,23 @@ from contextlib import contextmanager
 from typing import Generator
 from app.core.config import settings
 
-DB_FILE = os.path.abspath(settings.DATABASE_URL.replace("sqlite:///", ""))
+# Detect Vercel serverless environment (writable filesystem lives in /tmp)
+if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+    DB_FILE = "/tmp/storypulse.db"
+else:
+    raw_path = settings.DATABASE_URL.replace("sqlite:///", "")
+    DB_FILE = os.path.abspath(raw_path)
 
 def get_db_connection() -> sqlite3.Connection:
-    os.makedirs(os.path.dirname(DB_FILE), exist_ok=True)
+    if os.path.dirname(DB_FILE):
+        os.makedirs(os.path.dirname(DB_FILE), exist_ok=True)
     conn = sqlite3.connect(DB_FILE, check_same_thread=False)
     conn.row_factory = sqlite3.Row
-    conn.execute("PRAGMA journal_mode=WAL")
+    # WAL pragma works locally and in /tmp
+    try:
+        conn.execute("PRAGMA journal_mode=WAL")
+    except Exception:
+        pass
     conn.execute("PRAGMA foreign_keys=ON")
     return conn
 
