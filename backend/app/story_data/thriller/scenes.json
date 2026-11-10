@@ -21,6 +21,11 @@
         "keywords": ["brake", "emergency", "box", "pull", "panel", "override"],
         "target_scene_id": "scene_brake_panel",
         "response_dialogue": "You pry open the red emergency box. The main cable is intact, waiting for an authorization key."
+      },
+      "check_window": {
+        "keywords": ["window", "look", "outside", "tunnel", "darkness", "glass"],
+        "target_scene_id": "scene_carriage",
+        "response_dialogue": "You press your forehead against the cold vibration of the glass. The tunnel walls blur with glowing crimson numerals counting down to station zero."
       }
     }
   },
