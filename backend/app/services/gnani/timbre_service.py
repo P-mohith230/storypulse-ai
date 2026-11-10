@@ -3,17 +3,27 @@ import os
 from typing import Dict, Any, Optional
 from app.services.gnani.gnani_client import gnani_client
 
-CACHE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "audio_cache"))
+if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+    CACHE_DIR = "/tmp/audio_cache"
+else:
+    CACHE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "audio_cache"))
+
 os.makedirs(CACHE_DIR, exist_ok=True)
 
 class TimbreService:
+    @staticmethod
+    def generate_cache_key(text: str, voice_id: str, language: str) -> str:
+        """Deterministic cache key generation using SHA-256 truncated hash"""
+        raw = f"{text.strip()}:{voice_id.strip()}:{language.strip()}".encode("utf-8")
+        return hashlib.sha256(raw).hexdigest()[:24]
+
     def synthesize_sync(
         self,
         text: str,
         voice_id: str = "Nalini",
         language: str = "en-IN"
     ) -> Dict[str, Any]:
-        text_hash = hashlib.md5(f"{text}:{voice_id}:{language}".encode("utf-8")).hexdigest()
+        text_hash = self.generate_cache_key(text, voice_id, language)
         cached_file = os.path.join(CACHE_DIR, f"{text_hash}.wav")
 
         if os.path.exists(cached_file):
