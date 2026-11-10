@@ -1,0 +1,18 @@
+# Vercel Ignore File
+# Exclude mobile client and large artifacts from Python serverless deployment bundle
+
+mobile/
+.git/
+.github/
+.vscode/
+.idea/
+docs/
+*.md
+LICENSE
+audio_cache/
+scratch/
+tests/
+backend/tests/
+__pycache__/
+*.pyc
+*.log
